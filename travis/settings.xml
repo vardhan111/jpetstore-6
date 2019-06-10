@@ -29,5 +29,10 @@
       <username>git</username>
       <password>${env.CI_SITE_PASSWORD}</password>
     </server>
+    <server>
+      <id></id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
   </servers>
 </settings>
