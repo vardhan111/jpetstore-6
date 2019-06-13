@@ -1,6 +1,6 @@
 node {
 	
-	stages[
+	stages{
 		stage ('compile') {
 			steps{
 				withMaven(maven : 'maven3') {
@@ -8,9 +8,9 @@ node {
 				}
 			}
 		}
-		stage ('test'){
+		stage ('test') {
 			steps{
-				withMaven(maven : 'maven3'){
+				withMaven(maven : 'maven3') {
 					sh 'mvn test'
 				}
 			}
