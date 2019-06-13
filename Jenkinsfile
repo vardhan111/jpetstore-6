@@ -8,12 +8,5 @@ pipeline {
 					}
 				}
 			}
-		stage ('metrics stage') {
-			steps {
-				withMaven (maven : 'maven3') {
-					sh 'mvn -p metrics pmd:pmd'
-					}
-				}
-			}
 		}
 	}
