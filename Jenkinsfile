@@ -1,17 +1,25 @@
-node {
+pipeline {
+	agent 
 	
-	stages{
-		stage ('compile') {
+	stages[
+		stage ('Compile') {
 			steps{
 				withMaven(maven : 'maven3') {
 					sh 'mvn clean compile'
 				}
 			}
 		}
-		stage ('test') {
+		stage ('Test'){
 			steps{
-				withMaven(maven : 'maven3') {
+				withMaven(maven : 'maven3'){
 					sh 'mvn test'
+				}
+			}
+		}
+		stage ('Deployment'){
+			steps{
+				withMaven(maven : 'maven3'){
+					sh 'mvn deploy'
 				}
 			}
 		}
