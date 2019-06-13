@@ -1,24 +1,7 @@
-pipeline {
-	agent 
-	
-	stages[
-		stage ('Compile')
-			steps{
-				withMaven(maven : 'maven3') {
-					sh 'mvn clean compile'
-				}	
-		}
-		stage ('Test') 
-			steps{
-				withMaven(maven : 'maven3'){
-					sh 'mvn test'
-				}
-		}
-		stage ('Deployment')
-			steps{
-				withMaven(maven : 'maven3'){
-					sh 'mvn deploy'
-				}
+node {
+	stages{
+		stage('checkout'){
+		git credentialsId: 'e11b3922-015f-4548-891b-81fa1bb4a1e5', url: 'https://github.com/vardhan111/jpetstore-6.git'
 		}
 	}
 }
