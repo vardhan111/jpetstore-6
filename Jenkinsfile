@@ -8,6 +8,6 @@ node{
 	sh label: '', script: "$mvnCMD clean package"
 	}
 	stage('deploy'){
-	sh label: '', script: 'cp /target/*.war  /opt/tomcat/webapps/'
+	sh label: '', script: 'cp /var/lib/jenkins/workspace/pipe/target/jpetstore.war  /opt/tomcat/webapps/'
 	}
 }
