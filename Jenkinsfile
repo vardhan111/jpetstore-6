@@ -7,4 +7,7 @@ node{
 	def mvnCMD = "${mvnHome}/bin/mvn"
 	sh label: '', script: "$mvnCMD clean package"
 	}
+	stage('deploy'){
+	sh label: '', script: 'cp /target/*.war  /opt/tomcat/webapps/'
+	}
 }
