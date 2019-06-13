@@ -2,14 +2,14 @@ pipeline {
 	agent any
 	stages {
 		stage ('compile'){
-			step {
+			steps {
 				withMaven (maven : 'maven3') {
 					sh 'mvn clean compile'
 					}
 				}
 			}
 		stage ('metrics stage') {
-			step {
+			steps {
 				withMaven (maven : 'maven3') {
 					sh 'mvn -p metrics pmd:pmd'
 					}
