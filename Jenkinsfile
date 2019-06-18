@@ -8,7 +8,7 @@ node{
 	sh label: '', script: "$mvnCMD clean package"
 	}
 	stage('deploy'){
-	sh label: '', script: '''scp -i AWSpem.pem /target/*.war ec2-user@ec2-107-23-92-5:/opt/tomcat8/apache-tomcat-8.5.42/webapps
+	sh label: '', script: '''scp -i AWSpem.pem /target/*.war ec2-user@107.23.92.5:/opt/tomcat8/apache-tomcat-8.5.42/webapps
 '''
 	}
 }
