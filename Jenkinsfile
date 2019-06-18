@@ -8,6 +8,7 @@ node{
 	sh label: '', script: "$mvnCMD clean package"
 	}
 	stage('deploy'){
-	sh label: '', script: 'scp -r /var/lib/jenkins/workspace/pipe/target/jpetstore.war  vagrant@192.168.50.10:/opt/tomcat/webapps/'
+	sh label: '', script: '''scp /target/*.war ec2-user@ec2-107-23-92-5.compute-1.amazonaws.com:/opt/tomcat8/apache-tomcat-8.5.42/webapps
+'''
 	}
 }
