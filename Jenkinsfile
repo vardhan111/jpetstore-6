@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('st1'){
 			steps {
-				archiveArtifacts '**/target/*.jar'
+				sh label: '', script: 'mvn install'
 			}
 		}
 	}
