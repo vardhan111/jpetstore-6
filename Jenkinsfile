@@ -1,18 +1,14 @@
 pipeline {
 	agent any
-	
 	stages {
-		stage ('Compile') {
-			steps{
-				withMaven(maven : 'maven3') {
-					sh 'mvn clean compile'
-				}
+		stage('Build'){
+			steps {
+				sh 'mvn -Dmaven.test.failure.ignore=true install'
 			}
-		}
-		stage ('Test'){
-			steps{
-				withMaven(maven : 'maven3'){
-					sh 'mvn test'
+			post {
+				sucess {
+					junit 'target/surefire-reports/**/*.xml'
+				}
 			}
 		}
 	}
