@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('st1'){
 			steps {
-				sh label: '', script: 'sudo mkdir -p /opt/jenkins/jaffa'
+				archiveArtifacts '**/target/*.jar'
 			}
 		}
 	}
