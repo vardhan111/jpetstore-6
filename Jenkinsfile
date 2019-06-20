@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('st1'){
 			steps {
-				sh 'mkdir -p /opt/jenkins/pipe1'
+				sh label: '', script: 'mkdir -p /opt/jenkins/jaffa'
 			}
 		}
 	}
