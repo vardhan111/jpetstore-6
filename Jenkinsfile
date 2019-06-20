@@ -1,10 +1,10 @@
-pipeline{
+pipeline {
 	agent any
-		stage('build'){
-			step{
-				sh 'make'
-				archiveArtifacts '**/*.jar'
+	stages {
+		stage('st1'){
+			step {
+				sh 'mkdir -p /opt/jenkins/pipe1'
+			}
 		}
 	}
 }
-
